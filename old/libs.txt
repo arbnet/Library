@@ -1,0 +1,174 @@
+g++ -Wall -o "%e" "%f" -ID:/Cpp/Library -std=c++2a
+extern объявление типа экстерном
+//----------------------------------------
+template<INT_W nID> typename Type<nID>::type Object(POINTER pnt){return *(typename Type<nID>::type*)pnt;}
+//----------------------------------------
+template<typename T> // can bind to both lvalue AND rvalue references
+void printAge(T&& person) {
+   cout << "Age: " << person.age << endl;
+}
+void printAge(auto&& person) {
+   cout << "Age: " << person.age << endl;
+}
+//----------------------------------------
+
+
+//----------------------------------------
+#include <iostream>
+using namespace std;
+
+class ololo
+{
+	public:
+    template<class t>
+    auto& operator << (const t& obj)
+    { return std::cout << obj; }
+};
+ 
+int main()
+{
+	ololo o;
+    o<< "trololo\n";
+}
+//----------------------------------------
+class A{
+public:
+	int a=8;
+};
+
+class Z{
+public:
+	int val=0;
+	template <typename dTYPE>
+	z::Enable<z::isMain<dTYPE>,Z&> operator=(const dTYPE &val){
+		this->val+=(int)val;
+		return *this;
+	}
+	template <class oCLASS>
+	z::Enable<!z::isMain<oCLASS>,Z&> operator=(const oCLASS &obj){
+		this->val+=obj.a;
+		return *this;
+	}
+};
+
+int main(){
+	setlocale(LC_ALL,"");
+	
+	A a;
+	Z z;
+	z=5;
+	//z.add(5);
+	cout << z.val <<endl;
+	z=a;
+	//z.add(a);
+	cout << z.val <<endl;
+}
+//----------------------------------------
+void Show(Args arg){
+	cout << arg.Take(3) << endl;
+	if(arg.Size()){arg.Reset();
+		do{
+			cout << arg.Index() << "=" << arg.Get() << endl;
+		}while(arg.Next());
+	}
+}
+//-----------------------------------------
+template <typename dTYPE>
+void Swap(dTYPE &obj1, dTYPE &obj2){
+	dTYPE tmp(obj1);obj1=obj2;obj2=tmp;
+}
+//------------------------------------------
+lass Any {
+template<typename dTYPE>
+struct holder {
+    template<typename ...Args>
+    dTYPE create(Args&&... args){
+        return dTYPE(std::forward<Args>(args)...);
+    }
+};
+private:
+    void* pnt;
+public:
+    template<typename dTYPE>
+    Any(dTYPE obj){
+        holder<dTYPE> hld;
+        this->pnt=&hld;
+    }
+    template <typename dTYPE>
+    explicit operator dTYPE() const{return *static_cast<dTYPE*>(this->pnt);}
+};
+//------------------------------------------
+void Dcopy(){
+	//mov esi,adr1
+	//mov edi,adr2
+	//mov ecx,len
+	//rep movs;
+
+	LETTER ltr1[]="1234567890123456789012345";
+	LETTER ltr2[]="1234567890                                |";
+	INT_L len=3;
+	asm (
+	//"mov esi,%adr1"
+	//"mov edi,%adr2"
+	//"mov ecx,%len"
+	"rep movb"
+	:
+	: "esi"(ltr1), "edi"(ltr2), "ecx"(len)
+	//: "memory"
+	);
+	
+	cout << ltr2;
+}
+
+//-------------------------------------------
+	Block wr;
+	wr.data=55555;
+	Code B;
+	STRING str;
+	str="строка";
+	B.byte=wr.byte.b0;
+	cout << B.bit.b7 <<" " << B.bit.b6 <<" " << B.bit.b5 <<" " << B.bit.b4 <<" "
+		 << B.bit.b3 <<" " << B.bit.b2 <<" " << B.bit.b1 <<" " << B.bit.b0 <<" " << str << endl;
+	B.byte=wr.byte.b1;
+	cout << B.bit.b7 <<" " << B.bit.b6 <<" " << B.bit.b5 <<" " << B.bit.b4 <<" "
+		 << B.bit.b3 <<" " << B.bit.b2 <<" " << B.bit.b1 <<" " << B.bit.b0 <<" " << str << endl;
+
+//--------------------------------------------
+enum vTYPE {vLOGIC=1,vRANGE,vBYTE,vINT_S,vINT_W,vINT_M,vINT_L,vINT_T,vINT_B,vFLOAT,vDOUBLE,vSTRING};
+//--------------------------------------------
+// Сравнение типов
+template <typename type1,typename type2>
+struct isTYPE {
+    static const bool value = false;
+};
+template <typename type>
+struct isTYPE<type,type> {
+    static const bool value = true;
+};
+или
+template <typename T1,typename T2>
+struct isMatch {static const bool value = false;};
+template <typename dTYPE>
+struct isMatch<dTYPE,dTYPE> {static const bool value = true;};
+//----------------------------------------------
+class Type {
+private:
+	inline static std::vector<STRING> Types {
+        "POINTER","LOGIC","RANGE","LETTER","BYTE","INT_S","INT_W","INT_M","INT_L","INT_T","INT_B","FLOAT","DOUBLE","STRING"
+    };
+public:
+	static RANGE index(STRING type);
+	static STRING name(BYTE index);
+};
+RANGE Type::index(STRING type){
+	RANGE nt=-1;
+	BYTE cnt=Types.size();
+	for(BYTE nx=0;nx<cnt;nx++)
+		if(type==Types[nx]){nt=nx;break;}
+	return nt;
+};
+STRING Type::name(BYTE index){
+	BYTE cnt=Types.size();
+	return index<cnt?Types[index]:"";
+};
+//------------------------------------------------
