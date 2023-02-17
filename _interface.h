@@ -93,6 +93,6 @@ namespace i {
 /*
 template <typename dTYPE>
 std::ostream& operator<< (std::ostream &out,const dTYPE &obj){
-	return out<<Name<dTYPE>;
+	return out<<Name<dTYPE>;kkkkk
 }
 */

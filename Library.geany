@@ -28,16 +28,16 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=9
+current_page=8
 FILE_NAME_0=1767;C++;0;ECP1251;1;1;1;D%3A%5CCpp%5CLibrary%5C_array.h;0;4
 FILE_NAME_1=74;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_base.h;0;4
 FILE_NAME_2=35;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_calculate.h;0;4
 FILE_NAME_3=30;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_net.h;0;4
 FILE_NAME_4=368;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_disc.h;0;4
-FILE_NAME_5=36;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_string.h;0;4
+FILE_NAME_5=316;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_string.h;0;4
 FILE_NAME_6=0;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_file.h;0;4
 FILE_NAME_7=51;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_library.h;0;4
-FILE_NAME_8=97;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_interface.h;0;4
+FILE_NAME_8=2213;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_interface.h;0;4
 FILE_NAME_9=16316;C++;0;ECP1251;1;1;0;D%3A%5CCpp%5CLibrary%5C_types.h;0;4
 FILE_NAME_10=0;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_object.h;0;4
 FILE_NAME_11=1735;C++;0;EUTF-8;1;1;0;D%3A%5CCpp%5CLibrary%5C_zests.h;0;4
